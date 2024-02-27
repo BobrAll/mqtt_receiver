@@ -1,0 +1,22 @@
+version: "1.0"
+
+services:
+  rabbitmq:
+    container_name: rabbitmq
+    image: rabbitmq:3.13-management
+    restart: always
+    environment:
+      - RABBITMQ_SERVER_ADDITIONAL_ERL_ARGS=-rabbit disk_free_limit 2147483648
+    volumes:
+      - ./rabbitmq:/var/lib/rabbitmqd
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+  backend:
+    container_name: backend
+    image: backend
+    ports:
+      - "8080:8080"
+    depends_on:
+      - rabbitmq

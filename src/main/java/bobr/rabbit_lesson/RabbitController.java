@@ -17,6 +17,7 @@ public class RabbitController {
     @PostMapping
     ResponseEntity<String> sayHello(@RequestBody String message) {
         template.convertAndSend("myQueue", message);
-        return ResponseEntity.ok("Successfully sent to queue");
+
+        return ResponseEntity.ok("ABOBUS2");
     }
 }

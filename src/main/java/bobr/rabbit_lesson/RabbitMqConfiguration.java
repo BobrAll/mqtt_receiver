@@ -10,14 +10,12 @@ import org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import java.util.Arrays;
-
 @Configuration
 public class RabbitMqConfiguration {
 
     @Bean
     public ConnectionFactory connectionFactory() {
-        return new CachingConnectionFactory("localhost");
+        return new CachingConnectionFactory("rabbitmq");
     }
 
     @Bean
