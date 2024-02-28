@@ -17,13 +17,13 @@ public class RabbitController {
     private final RabbitTemplate rabbitTemplate;
     private final Exchange appExchange;
 
-    @Value("${spring.rabbitmq.rate-movie-routingKey}")
-    private String spamRoutingKey;
+    @Value("${spring.rabbitmq.routingKey}")
+    private String routingKey;
 
     @PostMapping
-    ResponseEntity<String> sayHello(@RequestBody String message) {
-        System.out.printf("Try to send '%s'\n", message);
-        rabbitTemplate.convertAndSend(appExchange.getName(), spamRoutingKey, message);
+    ResponseEntity<String> sayHello(@RequestBody MessageRequest message) {
+        rabbitTemplate.convertAndSend(appExchange.getName(), routingKey, message.getMessage());
+
         return ResponseEntity.ok("Success");
     }
 }

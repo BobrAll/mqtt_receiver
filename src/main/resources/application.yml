@@ -2,11 +2,10 @@ spring:
   rabbitmq:
     host: rabbitmq
     port: 5672
-    rate-movie-routingKey: routingKey
+    routingKey: routingKey
     exchange: exchange
-    rate-movie-queue: queue
+    queueName: queue
     exchangeType: direct
-  #spring.rabbitmq.autoCreate=true
     virtual-host: /
     username: guest
     password: guest
