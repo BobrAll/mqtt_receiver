@@ -1,8 +1,16 @@
 spring:
   rabbitmq:
-    host=rabbitmq
+    host: rabbitmq
+    port: 5672
+    rate-movie-routingKey: routingKey
+    exchange: exchange
+    rate-movie-queue: queue
+    exchangeType: direct
+  #spring.rabbitmq.autoCreate=true
+    virtual-host: /
+    username: guest
+    password: guest
+    primary: true
 
-  docker:
-    compose:
-      enabled: true
-      file: compose.yml
+
+
