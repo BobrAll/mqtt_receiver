@@ -32,6 +32,7 @@ public class JmsConfig {
         connectionFactory.setVirtualHost(virtualHost);
         connectionFactory.setHost(host);
         connectionFactory.setPort(port);
+
         return connectionFactory;
     }
 

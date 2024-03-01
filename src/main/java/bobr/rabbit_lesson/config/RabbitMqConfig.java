@@ -27,13 +27,13 @@ public class RabbitMqConfig {
     }
 
     @Bean
-    Queue spamQueue() {
+    Queue queue() {
         return new Queue(queueName);
     }
 
     @Bean
-    Binding declareBindingAddReview() {
-        return BindingBuilder.bind(spamQueue()).to(appExchange()).with(routingKey);
+    Binding bindQueue() {
+        return BindingBuilder.bind(queue()).to(appExchange()).with(routingKey);
     }
 
     @Bean
